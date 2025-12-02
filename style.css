@@ -7,27 +7,29 @@
 
 html,
 body {
+  color: white;
   width: 100%;
   height: 100%;
   background-color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body {
+.section1 {
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  anchor-name: --some-anchor;
+  gap: 20px;
+  border-bottom: 2px solid wheat;
+
 }
 
 .box {
   width: 200px;
   height: 200px;
+  transition: all linear 0.2s;
 }
 
-.box:hover {
-  anchor-name: --some-anchor;
-}
 
 .red {
   background-color: rgb(200, 27, 27);
@@ -41,17 +43,34 @@ body {
   background-color: rgb(30, 133, 45);
 }
 
-.anchor {
-  background-color: white;
-  position: absolute;
-  border-radius: 10px;
-  top: anchor(top);
-  left: anchor(left);
-  right: anchor(right);
-  bottom: anchor(bottom);
-  transition: all linear 0.3s;
-  position-anchor: --some-anchor;
-  mix-blend-mode: difference;
-  pointer-events: none;
-  
+.box:hover {
+  scale: 1.2 !important;
+}
+
+.section1:has(.box:hover) .box {
+  transform: scale(0.8);
+}
+
+.section2 {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.balls {
+  display: flex;
+  gap: 10px;
+  border: 2px solid white;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.balls:has(.red) {
+  background-color: yellow;
 }
