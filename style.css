@@ -17,65 +17,41 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-@property --rotate{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+  anchor-name: --some-anchor;
 }
 
-@keyframes borderanimate{
-  from{
-    --rotate: 0deg;
-  }
-  to{
-    --rotate: 360deg;
-  }
+.box {
+  width: 200px;
+  height: 200px;
 }
 
-.card {
-  width: 300px;
-  height: 450px;
-  padding-inline: 10px;
-  padding-bottom: 10px;
-  color: rgb(255, 255, 255);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  /* box-shadow: 0 0 0px rgba(255, 0, 123); */
-  background: linear-gradient(to top left, black) padding-box,
-    conic-gradient(from var(--rotate), black, rgba(255, 0, 123), black) border-box;
-  border: 0px solid rgba(255, 255, 255, 0);
-  margin: 10px;
-  animation: borderanimate 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-play-state: paused;
-  transition: all linear 0.2s;
-  /* text-shadow: 0px 0px 0px rgb(255, 255, 255); */
+.box:hover {
+  anchor-name: --some-anchor;
 }
 
-.card:hover{
-  animation-play-state: running;
-  border: 5px solid rgba(255, 255, 255, 0);
-  box-shadow: 0 0 40px rgba(255, 0, 123);
-  color: rgb(46, 191, 191);
-  text-shadow: 0px 0px 10px rgb(46, 191, 191);
+.red {
+  background-color: rgb(200, 27, 27);
 }
 
-
-.card img {
-  width: 100%;
-  object-fit: cover;
+.blue {
+  background-color: rgb(31, 31, 132);
 }
 
-.card h1 {
-  font-size: 25px;
-  font-weight: 500;
+.green {
+  background-color: rgb(30, 133, 45);
 }
 
-.card p {
-  font-size: 16px;
-  opacity: 0.90;
+.anchor {
+  background-color: white;
+  position: absolute;
+  border-radius: 10px;
+  top: anchor(top);
+  left: anchor(left);
+  right: anchor(right);
+  bottom: anchor(bottom);
+  transition: all linear 0.3s;
+  position-anchor: --some-anchor;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  
 }
